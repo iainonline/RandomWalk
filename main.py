@@ -58,11 +58,11 @@ def main(d):
                 sys.exit()
 
         # Processing
-        # I put some processing in rendering to save looping twice
+        # processing code inside to rendering loop to save cpu
 
-        # Render elements of the game
+        # Render elements
         for i in range(len(d)):
-            d[i].Setdevicevelocity(random.randrange(0, 3, 1) -1 ,random.randrange(0, 3, 1) -1, 0) # random walk
+            d[i].Setdevicevelocity(random.randrange(0, 3, 1) -1 ,random.randrange(0, 3, 1) -1, 0) # do a random walk
             ident, x, y, z = d[i].returnDeviceInfo()
             d[i].Moveobjectbasedonvelocity()
             pygame.draw.circle(WINDOW, (0,0,0), (x, y), 1)
@@ -74,5 +74,5 @@ def main(d):
 d = []
 
 for i in range(0,DEVICES,1):
-    d.append(Device(i,random.randrange(0,WINDOW_WIDTH,1),random.randrange(0,WINDOW_HEIGHT,1),0,0,0,0))
+    d.append(Device(i,random.randrange(0,WINDOW_WIDTH,1),random.randrange(0,WINDOW_HEIGHT,1),0,0,0,0)) # add instances of Device(s) to array
 main(d)
